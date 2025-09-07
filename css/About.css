@@ -1,0 +1,118 @@
+.About {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.About_title {
+  font-size: 40px;
+  text-align: center;
+  color: rgb(5, 75, 75);
+  border-bottom: 4px solid rgb(5, 75, 75);
+  display: inline;
+}
+
+.article_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}    
+
+.article {
+  width: 50%;
+  height: 400px;
+  font-size: 24px;
+  text-align: justify;
+  position: relative;
+}
+
+.texte_about1 {
+  opacity: 0;
+  transform: translateY(
+    -50px
+  ); /* Déplacez l'élément vers le haut de 50 pixels */
+  transition: opacity 2s ease, transform 1s ease; /* Ajoutez une transition */
+}
+
+.texte_about2 {
+  opacity: 0;
+  transform: translateY(
+    50px
+  ); /* Déplacez l'élément vers le haut de 50 pixels */
+  transition: opacity 2s ease, transform 1s ease; /* Ajoutez une transition */
+}
+
+/*iMAGE LOIC*/
+.article_photo {
+  width: 300px;
+  height: 300px;
+  font-size: 30px;
+  overflow: hidden; /* Pour cacher les parties de l'image qui dépassent du cadre */
+  border-radius: 50%; /* Pour créer un cadre rond */
+  position: relative; /* Pour que les animations se basent sur la position */
+  box-shadow: 5px 45px 60px rgba(0, 0, 0, 0.4); /* Ombre derrière le cadre */
+  opacity: 0;
+  transform: scale(0.5); /* Le cadre est initialement réduit */
+  transition: opacity 2s ease, transform 1s ease, box-shadow 1s ease; /* Ajoutez une transition */
+}
+
+.article_photo.active {
+  opacity: 1;
+  transform: translateX(0); /* Annulez le déplacement */
+}
+
+.article_photo:hover .image {
+  transform: scale(1.1); /* Zoom de 10% au survol */
+}
+
+.article_photo:hover {
+  box-shadow: 5px 35px 50px 1px rgba(0, 0, 0, 0.6); /* Ombre derrière le cadre */
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  width: 100%; /* Pour remplir le cadre avec l'image */
+  height: 100%; /* Pour remplir le cadre avec l'image */
+  object-fit: cover; /* Pour que l'image remplisse entièrement le cadre */
+  transition: transform 0.3s ease; /* Animation au survol */
+}
+
+@media only screen and (max-width: 860px) {
+  .article_item {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .article_photo {
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px; /*PLACE DE LA PHOTO SOUS TEXT*/
+  }
+  .article {
+    width: 100%;
+    height: 300px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .article {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .article {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .article_photo {
+    margin-top: 200px;
+  }
+}

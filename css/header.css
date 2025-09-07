@@ -1,0 +1,278 @@
+.header {
+  height: 650px;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  position: relative;
+}
+
+.header_texture {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgb(43, 4, 80), rgb(5, 75, 75));
+  background-size: cover;
+  /*z-index: 1;*/
+  opacity: 0.7;
+}
+
+.header_mask {
+  position: absolute;
+  bottom: 0;
+  background: 0 0;
+  width: 100%;
+  height: 42px;
+  /*z-index: 1;*/
+}
+
+.header_navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_navbar_logo_titre {
+  /* Welcome */
+  color: blue;
+  font-size: 28px;
+}
+
+.header_navbar_menu_link {
+  /* Les 4 liens */
+  margin-left: 40px;
+  color: aqua;
+  text-decoration: none;
+  font-family: "Robot", sans-serif;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.header_navbar_menu_link:hover {
+  opacity: 1;
+}
+
+.header_navbar_logo_intro {
+  /* je suis ... */
+  padding-left: 100px;
+  color: blue;
+  font-size: 28px;
+
+  opacity: 0; /* Cacher initialement le titre */
+  transition: opacity 2s ease, transform 1s ease;
+  transform: translateX(50px);
+}
+
+.header_navbar_logo_name {
+  /* Loic CLAUDE */
+  padding-left: 150px;
+  font-family: "Robot", sans-serif;
+  color: rgb(51, 153, 212);
+  font-size: 70px;
+  margin-bottom: 0;
+  letter-spacing: 2px;
+
+  /* Transition gauche loic */
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 2s ease, transform 1s ease;
+}
+.header_navbar_logo_work {
+  /* Metier */
+  padding-left: 150px;
+  margin: 0;
+  color: blue;
+  font-size: 38px;
+
+  opacity: 0; /* Cacher initialement le titre */
+  transition: opacity 1s ease; /* Transition d'opacité de 2 secondes */
+}
+/* desing bouton*/
+.btn-get-started {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #007bff;
+  border-radius: 20px;
+  color: #007bff;
+  text-decoration: none;
+  transition: background-color 0.4s, color 0.4s, box-shadow 0.4s,
+    opacity 2s ease, transform 1s ease;
+  margin-left: 150px;
+  font-weight: bold;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateX(50px) translateY(-50px);
+}
+
+.btn-get-started:hover {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0px 0px 60px 3px rgba(0, 123, 255, 0.5); /* Ajout de l'ombre lors du survol */
+}
+
+.btn-get-started::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 19px;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(130deg);
+  position: absolute;
+  left: 120px;
+}
+
+.btn-get-started::before {
+  content: "";
+  display: block;
+  height: 9px;
+  width: 100%;
+  background: rgb(255, 255, 255, 0.2);
+  transform: rotate(130deg);
+  position: absolute;
+  left: 120px;
+}
+
+.btn-get-started:hover.btn-get-started::before {
+  animation: btnTrais-2 0.5s ease-in-out 0.3s;
+}
+
+.btn-get-started:hover.btn-get-started::after {
+  animation: btnTrais 0.6s ease-in-out 0.3s;
+}
+
+@keyframes btnTrais {
+  from {
+    left: 210px;
+  }
+  to {
+    left: -170px;
+  }
+}
+
+@keyframes btnTrais-2 {
+  from {
+    left: 180px;
+  }
+  to {
+    left: -170px;
+  }
+}
+
+/* menu responsive*/
+.header_navbar_toggle {
+  width: 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+}
+
+.header_navbar_toggle_icons,
+.header_navbar_toggle_icons:before,
+.header_navbar_toggle_icons:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background-color: aqua;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.header_navbar_toggle_icons:before {
+  top: 10px;
+}
+.header_navbar_toggle_icons:after {
+  top: -13px;
+}
+
+.is-open .header_navbar_menu {
+  transform: translateX(0);
+  opacity: 1;
+  /*position: fixed;*/
+  z-index: 997;
+}
+
+.header_navbar_toggle.is-open span.header_navbar_toggle_icons {
+  background: transparent;
+}
+
+.header_navbar_toggle.is-open span.header_navbar_toggle_icons:before,
+.header_navbar_toggle.is-open span.header_navbar_toggle_icons:after {
+  transform-origin: center;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.header_navbar_toggle.is-open span.header_navbar_toggle_icons:before {
+  position: absolute;
+  transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .header_navbar_toggle {
+    display: flex;
+    z-index: 1000;
+  }
+  .header_navbar_menu {
+    transition: all 0.3s ease-in-out;
+    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(9, 8, 26);
+    top: 0;
+    left: 0;
+    position: fixed;
+
+    /*
+        opacity: 1;
+        position: fixed; 
+        overflow: hidden;*/
+  }
+  .header_navbar_menu_link {
+    margin: 20px 0;
+    font-size: 25px;
+  }
+  .header_navbar_logo_intro {
+    /* je suis ... */
+    padding-left: 20px;
+    font-size: 20px;
+  }
+  .header_navbar_logo_name {
+    font-size: 50px;
+    padding-left: 50px;
+  }
+  .header_navbar_logo_work {
+    font-size: 33px;
+    padding-left: 50px;
+  }
+  .btn-get-started {
+    margin-left: 120px;
+  }
+  .header {
+    height: 750px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .header {
+    height: 850px;
+  }
+}

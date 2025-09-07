@@ -1,0 +1,119 @@
+.Footer {
+  text-align: center;
+  padding-top: 30px;
+  background-image: linear-gradient(to bottom, rgb(4, 37, 80), rgb(9, 19, 31));
+  margin: 0;
+
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.Footer_title {
+  /*Texte debut*/
+  font-size: 40px;
+  text-align: center;
+  color: aqua;
+  border-bottom: 4px solid aqua;
+  display: inline;
+}
+
+.class_social_icon {
+  display: flex;
+  justify-content: center;
+
+  opacity: 0; /* Cacher initialement le titre */
+  transition: opacity 3.7s ease; /* Transition d'opacité de 2 secondes */
+}
+
+.class_social_icon a {
+  text-decoration: none;
+  padding: 12px;
+  background-color: white;
+  margin: 25px;
+  border-radius: 50%;
+  transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.class_social_icon a i {
+  font-size: 3rem;
+  color: black;
+  opacity: 0.9;
+  transition: color 0.5s;
+}
+
+.class_social_icon a:hover {
+  background-color: rgb(14, 88, 158);
+  box-shadow: 0px 4px 20px 3px rgb(0, 0, 0);
+  transition: 0.4s;
+}
+
+.class_social_icon a:hover i {
+  color: white;
+  transition: 0.4s;
+}
+
+.Footeur_navbar_menu {
+  justify-content: center;
+  padding: 20px;
+}
+
+.Footeur_navbar_menu_link {
+  color: aqua;
+  margin: 35px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Robot", sans-serif;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.Footeur_navbar_menu_link:hover {
+  opacity: 1;
+}
+
+.Footer_bottom {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+.Footer_bottom p {
+  color: white;
+}
+
+.Designer {
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0 5px;
+}
+
+@media only screen and (max-width: 520px) {
+  /*how to contact me? plus petit*/
+  .Footer_title {
+    font-size: 34px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  /*espace entre liens plus petit*/
+  .Footeur_navbar_menu_link {
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  /*liens en colonne*/
+
+  .Footeur_navbar_menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Footeur_navbar_menu_link {
+    width: 100%;
+    text-align: center;
+    margin: 7px;
+  }
+}

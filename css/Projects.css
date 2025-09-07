@@ -1,0 +1,374 @@
+.Projects_title {
+  /*Some of my Projects*/
+  font-size: 40px;
+  text-align: center;
+  color: rgb(4, 37, 80);
+  border-bottom: 4px solid rgb(4, 37, 80);
+  padding-top: 50px;
+  width: 50%;
+  margin: auto;
+}
+
+.wrapper {
+  margin: 60px auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background-color: rgb(4, 37, 80);
+  transition: 0.5s ease;
+  border-radius: 2em;
+}
+
+.wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 16px 10px rgba(0, 0, 0, 0.5);
+}
+
+.carrousel {
+  /*max-width: 320px;*/
+  width: 442px;
+  height: 246px;
+  border: 3px solid white;
+  box-shadow: 0 0 17px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  float: left;
+  border-radius: 20px; /*Angle rond*/
+  margin-right: 15px; /*Texte pas coller au carrousel*/
+  margin-top: 20px; /* pas coller en hayt*/
+}
+
+.carrouselDroite {
+  /*max-width: 320px;*/
+  width: 442px;
+  height: 246px;
+  border: 3px solid white;
+  box-shadow: 0 0 17px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  float: right;
+  border-radius: 20px; /*Angle rond*/
+  margin-left: 15px; /*Texte pas coller au carrousel*/
+  margin-top: 20px; /* pas coller en haut*/
+}
+
+.carrouselGauche2 {
+  /*max-width: 320px;*/
+  width: 442px;
+  height: 246px;
+  border: 3px solid white;
+  box-shadow: 0 0 17px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  float: left;
+  border-radius: 20px; /*Angle rond*/
+  margin-right: 15px; /*Texte pas coller au carrouselGauche2*/
+  margin-top: 20px; /* pas coller en haut*/
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 2s ease, transform 1s ease;
+}
+
+#container_image1 {
+  width: 442px;
+  height: 246px;
+}
+
+#container_image2 {
+  width: 442px;
+  height: 246px;
+}
+
+#container_image3 {
+  width: 442px;
+  height: 246px;
+}
+
+#container_image4 {
+  width: 442px;
+  height: 246px;
+}
+
+#container_image1 video {
+  width: 100%;
+  height: auto;
+}
+
+#container_image2 video {
+  width: 100%;
+  height: auto;
+}
+
+#container_image3 video {
+  width: 100%;
+  height: auto;
+}
+
+#container_image4 video {
+  width: 100%;
+  height: auto;
+}
+
+.text_box {
+  color: rgb(255, 255, 255);
+}
+.text_box h2 {
+  font-size: 42px;
+  font-family: "Robot", sans-serif;
+}
+.text_box p {
+  font-size: 24px;
+}
+
+.Titre_SNBOT {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 2s ease, transform 1s ease;
+}
+.Titre_PlayerRUN {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 2s ease, transform 1s ease;
+}
+.Titre_Portfolio {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 2s ease, transform 1s ease;
+}
+
+.Titre_Gestion {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 2s ease, transform 1s ease;
+}
+
+.texte_projets {
+  opacity: 0;
+  transform: translateY(
+    50px
+  ); /* Déplacez l'élément vers le haut de 50 pixels */
+  transition: opacity 2s ease, transform 1s ease; /* Ajoutez une transition */
+}
+.texte_projets2 {
+  opacity: 0;
+  transform: translateY(
+    50px
+  ); /* Déplacez l'élément vers le haut de 50 pixels */
+  transition: opacity 2s ease, transform 1s ease; /* Ajoutez une transition */
+}
+.texte_projets3 {
+  opacity: 0;
+  transform: translateY(
+    50px
+  ); /* Déplacez l'élément vers le haut de 50 pixels */
+  transition: opacity 2s ease, transform 1s ease; /* Ajoutez une transition */
+}
+.texte_projets4 {
+  opacity: 0;
+  transform: translateY(
+    50px
+  ); /* Déplacez l'élément vers le haut de 50 pixels */
+  transition: opacity 2s ease, transform 1s ease; /* Ajoutez une transition */
+}
+.bouton {
+  position: absolute;
+  width: 44px;
+  cursor: pointer;
+  top: 100px; /* Hauteur des fleches */
+}
+#g {
+  left: 0px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#d {
+  right: 0;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#g:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+#d:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+#g2 {
+  left: 0px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#d2 {
+  right: 0;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#g2:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+#d2:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+#g3 {
+  left: 0px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#d3 {
+  right: 0;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#g3:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+#d3:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.photo {
+  width: 442px;
+  height: 246px;
+  margin: 0;
+  display: inline-block;
+  background-size: cover;
+
+  /*
+    max-width: 320px;
+     float: left; 
+    border: 3px solid white;
+    border-radius: 10px;
+    margin-right: 15px;
+    margin: 0 auto 15px;
+    margin-top: 20px;*/
+}
+
+@media only screen and (max-width: 800px) {
+  .carrousel {
+    margin-bottom: 20px;
+  }
+
+  .carrouselDroite {
+    margin-bottom: 20px;
+  }
+
+  .carrouselGauche2 {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .photo {
+    width: 332px;
+    height: 184px;
+  }
+
+  .carrousel {
+    width: 332px;
+    height: 184px;
+    float: none; /* annuler le flottement à droite */
+    clear: both; /* s'assurer qu'aucun élément ne peut flotter à côté */
+  }
+
+  .carrouselDroite {
+    width: 332px;
+    height: 184px;
+    float: right;
+    clear: both;
+  }
+
+  .carrouselGauche2 {
+    width: 332px;
+    height: 184px;
+    float: right;
+    clear: both;
+    margin-right: 0; /*Video carrouselGauche2 centre*/
+  }
+
+  #container_image,
+  #container_image2,
+  #container_image3,
+  #container_image4 {
+    width: 332px;
+    height: 184px;
+  }
+
+  #g,
+  #d,
+  #g2,
+  #d2,
+  #g3,
+  #d3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .Projects_title {
+    font-size: 36px;
+  }
+  .text_box p {
+    font-size: 19px;
+  }
+
+  .text_box h2 {
+    font-size: 37px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .photo {
+    width: 290px;
+    height: 165px;
+  }
+
+  .carrousel {
+    width: 290px;
+    height: 165px;
+    float: none;
+    clear: both;
+  }
+
+  .carrouselDroite {
+    width: 290px;
+    height: 165px;
+    float: right;
+    clear: both;
+  }
+
+  .carrouselGauche2 {
+    width: 290px;
+    height: 165px;
+    float: right;
+    clear: both;
+    margin-right: 0; /*Video carrouselGauche2 centre*/
+  }
+
+  #container_image,
+  #container_image2,
+  #container_image3,
+  #container_image4 {
+    width: 290px;
+    height: 165px;
+  }
+}

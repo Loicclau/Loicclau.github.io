@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Robot";
+  src: url("../font/Robot.ttf") format("truetype"); /* Chemin vers votre police téléchargée */
+  /* Vous pouvez ajouter d'autres formats de police (e.g., woff, woff2) pour une meilleure compatibilité */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  /*overflow: hidden;*/
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/*Important*/
+.container {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  /*z-index: 1;*/
+}
