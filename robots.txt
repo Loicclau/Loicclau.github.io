@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loicclau.github.io/sitemap.xml
