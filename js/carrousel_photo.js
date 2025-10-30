@@ -80,6 +80,33 @@ document.body.onload = function () {
   }
   afficherMasquer3();
 };
+
+/* code carrousel Krojanty*/
+  nbr4 = 4;
+  p4 = 0;
+  container_image5 = document.getElementById("container_image5");
+  g4 = document.getElementById("g4");
+  d4 = document.getElementById("d4");
+  container_image5.style.width = 442 * nbr4 + "px";
+
+  // Créer la balise vidéo
+  videoDiv4 = document.createElement("div");
+  videoDiv4.className = "photo";
+  video4 = document.createElement("video");
+  video4.src = "vid/Krojanty-video.mp4";
+  video4.loop = true; // Ajouter l'attribut loop
+  video4.muted = true; // Ajouter l'attribut muted
+  video4.autoplay = true; // Ajouter l'attribut autoplay
+  videoDiv4.appendChild(video4);
+  container_image5.appendChild(videoDiv4);
+
+  for (i = 1; i <= nbr4; i++) {
+    div4 = document.createElement("div4");
+    div4.className = "photo";
+    div4.style.backgroundImage = "url('img/Krojanty" + i + ".png')";
+    container_image5.appendChild(div4);
+  }
+  afficherMasquer4();
 /* fin de onload */
 
 d.onclick = function () {
@@ -145,6 +172,27 @@ function afficherMasquer3() {
   else d3.style.visibility = "visible";
 }
 
+d4.onclick = function () {
+  if (p4 > -nbr4 + 1) p4--;
+  container_image5.style.transform = "translate(" + p4 * 442 + "px)";
+  container_image5.style.transition = "all 0.5s ease";
+  afficherMasquer4();
+};
+g4.onclick = function () {
+  if (p4 < 0) p4++;
+  container_image5.style.transform = "translate(" + p4 * 442 + "px)";
+  container_image5.style.transition = "all 0.5s ease";
+  afficherMasquer4();
+};
+
+function afficherMasquer4() {
+  if (p4 == 0) g4.style.visibility = "hidden";
+  else g4.style.visibility = "visible";
+
+  if (p4 == -nbr4 + 1) d4.style.visibility = "hidden";
+  else d4.style.visibility = "visible";
+}
+
 // Fonction pour réinitialiser la variable p
 //remettre les carrousels sur la video si le format d'ecran change
 function resetP() {
@@ -162,6 +210,11 @@ function resetP() {
   container_image3.style.transform = "translate(" + p3 * -442 + "px)";
   container_image3.style.transition = "all 0.5s ease";
   afficherMasquer3();
+
+  p4 = 0;
+  container_image5.style.transform = "translate(" + p4 * -442 + "px)";
+  container_image5.style.transition = "all 0.5s ease";
+  afficherMasquer4();
 }
 
 // Ajouter un écouteur d'événement pour surveiller les changements dans le media query

@@ -240,6 +240,31 @@ document.addEventListener("DOMContentLoaded", function () {
   observer.observe(title);
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  var title = document.querySelector(".texte_projets5");
+
+  function revealText(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)"; // Déplacez l'élément vers sa position originale
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+  var options = {
+    root: null,
+    threshold: 0.5,
+  };
+
+  var observer = new IntersectionObserver(revealText, options);
+  observer.observe(title);
+});
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   var title = document.querySelector(".Titre_SNBOT");
 
@@ -305,6 +330,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   var title = document.querySelector(".Titre_Gestion");
+
+  function revealText(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateX(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+  var options = {
+    root: null,
+    threshold: 0.5,
+  };
+
+  var observer = new IntersectionObserver(revealText, options);
+  observer.observe(title);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var title = document.querySelector(".Titre_Krojanty");
 
   function revealText(entries, observer) {
     entries.forEach((entry) => {
