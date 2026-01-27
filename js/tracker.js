@@ -1,6 +1,5 @@
-// Configuration
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5jeKfv2Xzy3M1LAUOocNqJ3oLWkGNlbjKZ2GiQLjDueoX5hvAG-zGnU0tkE9plMMX/exec"; // URL Google Apps Script
-
+// URL Google Apps Script
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXRK3J6j6kQjWsWrlDHm1QkN0L0_yFOvQW5qEp5nLZAMY7Xeq8JnoLJ6r2RgVFe0ef/exec"; 
 
 // Provenance (Referrer)
 function detectSource() {
@@ -10,9 +9,9 @@ function detectSource() {
   if (ref.includes("github.com")) return "GitHub";
   if (ref.includes("facebook.com")) return "Facebook";
   if (ref.includes("twitter.com") || ref.includes("x.com")) return "X / Twitter";
+  if (ref.includes("loicclau.github.io")) return "Vient du meme site";
   return ref ? "Autre site" : "Accès direct";
 }
-
 
 // Date & Heure
 function getDateHeure() {
@@ -22,7 +21,6 @@ function getDateHeure() {
     heure: now.toLocaleTimeString("fr-FR")
   };
 }
-
 
 // Appareil & Navigateur
 function getDeviceInfo() {
@@ -37,41 +35,44 @@ function getDeviceInfo() {
   else if (ua.includes("Chrome")) browser = "Chrome";
   else if (ua.includes("Firefox")) browser = "Firefox";
   else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-
   return { device, browser };
 }
 
-
 // Envoi des données
 function sendVisitData() {
-  fetch("https://ipinfo.io/json")
-    .then(res => res.json())
-    .then(data => {
-      const time = getDateHeure();
-      const deviceInfo = getDeviceInfo();
+  if (sessionStorage.getItem("visited")) {
+  // Visite déjà enregistrée dans cette session, plus de tracking
+  } else {
+    sessionStorage.setItem("visited", "true");
 
-      const payload = {
-        date: time.date,
-        heure: time.heure,
-        ip: data.ip || "",
-        city: data.city || "",
-        region: data.region || "",
-        country: data.country || "",
-        org: data.org || "",
-        device: deviceInfo.device,
-        browser: deviceInfo.browser,
-        source: detectSource()
-      };
+    fetch("https://ipinfo.io/json")
+      .then(res => res.json())
+      .then(data => {
+        const time = getDateHeure();
+        const deviceInfo = getDeviceInfo();
 
-      fetch(SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(payload)
+        const payload = {
+          date: time.date,
+          heure: time.heure,
+          ip: data.ip || "",
+          city: data.city || "",
+          region: data.region || "",
+          country: data.country || "",
+          org: data.org || "",
+          device: deviceInfo.device,
+          browser: deviceInfo.browser,
+          source: detectSource()
+        };
+
+        fetch(SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify(payload)
+        });
+      })
+      .catch(() => {
+        // silence total
       });
-    })
-    .catch(() => {
-      // silence total
-    });
+  }
 }
-
 // Lancement auto à la visite
 sendVisitData();
