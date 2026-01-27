@@ -40,39 +40,34 @@ function getDeviceInfo() {
 
 // Envoi des données
 function sendVisitData() {
-  if (sessionStorage.getItem("visited")) {
-  // Visite déjà enregistrée dans cette session, plus de tracking
-  } else {
-    sessionStorage.setItem("visited", "true");
+  
+  fetch("https://ipinfo.io/json")
+    .then(res => res.json())
+    .then(data => {
+      const time = getDateHeure();
+      const deviceInfo = getDeviceInfo();
 
-    fetch("https://ipinfo.io/json")
-      .then(res => res.json())
-      .then(data => {
-        const time = getDateHeure();
-        const deviceInfo = getDeviceInfo();
+      const payload = {
+        date: time.date,
+        heure: time.heure,
+        ip: data.ip || "",
+        city: data.city || "",
+        region: data.region || "",
+        country: data.country || "",
+        org: data.org || "",
+        device: deviceInfo.device,
+        browser: deviceInfo.browser,
+        source: detectSource()
+      };
 
-        const payload = {
-          date: time.date,
-          heure: time.heure,
-          ip: data.ip || "",
-          city: data.city || "",
-          region: data.region || "",
-          country: data.country || "",
-          org: data.org || "",
-          device: deviceInfo.device,
-          browser: deviceInfo.browser,
-          source: detectSource()
-        };
-
-        fetch(SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify(payload)
-        });
-      })
-      .catch(() => {
-        // silence total
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload)
       });
-  }
+    })
+    .catch(() => {
+      // silence total
+    });
 }
 // Lancement auto à la visite
 sendVisitData();
